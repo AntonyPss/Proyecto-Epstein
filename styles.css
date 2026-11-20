@@ -1666,3 +1666,47 @@ body::after {
         transform: translateX(7px);
     }
 }
+
+/* ---------- Horizontal (móvil acostado / pantallas bajas) ---------- */
+
+@media (orientation: landscape) and (max-height: 560px) {
+    .content {
+        padding-top: 76px;
+        padding-bottom: 20px;
+    }
+
+    .round-content {
+        padding-top: 86px;
+    }
+
+    .hud-bar {
+        min-height: 0;
+        padding: 8px 14px;
+    }
+
+    .story-intro {
+        min-height: 0;
+        justify-content: flex-start;
+    }
+
+    .story-scene {
+        min-height: 0;
+        height: 54vh;
+        max-height: 440px;
+        margin-bottom: 14px;
+    }
+
+    .story-scene__caption h2 {
+        font-size: 1.1rem;
+    }
+
+    .illustration {
+        min-height: 180px;
+        height: 52vh;
+        max-height: 400px;
+    }
+
+    .dossier-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

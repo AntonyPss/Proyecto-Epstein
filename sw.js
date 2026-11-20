@@ -1,4 +1,4 @@
-const CACHE = "expediente-epstein-v2";
+const CACHE = "expediente-epstein-v3";
 const ASSETS = [
     "./",
     "index.html",
