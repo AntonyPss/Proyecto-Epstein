@@ -257,7 +257,6 @@ let locked = false;
 let screamerTimer = null;
 let scareTimer = null;
 const scareImages = [
-    "assets/images/jeffrey-alt.png",
     "assets/images/jeffrey-stare.png",
     "assets/images/jeffrey-pointing.png",
     "assets/images/jeffrey-sunrise.png",
