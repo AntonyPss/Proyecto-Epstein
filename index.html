@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description"
+        content="El Expediente Epstein: una investigación interactiva de terror e acertijos. Sigue la pista a través de cinco escenarios, descubre datos ocultos y alcanza uno de los varios finales.">
+    <meta name="theme-color" content="#050706">
+    <title>El Expediente Epstein</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="shell">
+        <div class="game">
+            <section class="content game-screen" id="start-screen">
+                <div>
+                    <p class="eyebrow">Una investigación interactiva</p>
+                    <h1>El expediente que <span>nadie</span> quería abrir</h1>
+                    <p class="intro">Miles de documentos salieron a la luz en 2025. Tú tienes el tuyo: cinco
+                        escenarios, cinco acertijos y una verdad que nadie esperaba. Cada error te acerca al
+                        final.</p>
+                    <p class="creator-credit">Creado por <strong>AntonyPss</strong></p>
+                    <div class="rules">
+                        <div class="rule"><strong>Tu misión</strong>Resuelve los 5 capítulos del expediente.</div>
+                        <div class="rule"><strong>Cuidado</strong>Solo tienes 3 oportunidades.</div>
+                    </div>
+                    <div class="start-actions">
+                        <button class="button" id="start-button">Comenzar investigación <span
+                                aria-hidden="true">&nbsp;→</span></button>
+                        <button class="button button--ghost" id="dossier-button">Ver expediente del
+                            personaje</button>
+                    </div>
+                </div>
+                <div class="illustration" aria-label="Ilustración de Jeffrey Epstein" role="img">
+                    <img src="assets/images/jeffrey-esptein.jpg" alt=""
+                        width="1400" height="1140" decoding="async">
+                </div>
+            </section>
+
+            <section class="content game-screen dossier-screen" id="dossier-screen" hidden>
+                <div class="dossier">
+                    <p class="eyebrow">Ficha del personaje</p>
+                    <h2>Jeffrey Epstein</h2>
+                    <div class="dossier-grid">
+                        <div class="dossier-fact">
+                            <strong>1953 · Nueva York</strong>
+                            <span>Nació en Manhattan. Antes de la fortuna fue profesor de matemáticas en la Dalton
+                                School, donde los padres confiasan en él con sus hijos.</span>
+                        </div>
+                        <div class="dossier-fact">
+                            <strong>La consultora</strong>
+                            <span>Tras dejar la enseñanza trabajó en Bear Stearns y fundó una firma de
+                                «optimización» que le abrió las puertas de la alta sociedad.</span>
+                        </div>
+                        <div class="dossier-fact">
+                            <strong>El «Lolita Express»</strong>
+                            <span>Un Boeing 727 modificado que lo llevaba a-islas privadas y viajes con invitados
+                                selectos. Pilotos y azafatas fueron interrogados durante años.</span>
+                        </div>
+                        <div class="dossier-fact">
+                            <strong>2008 · El acuerdo</strong>
+                            <span>Se declaró culpable de solicitar prostitución de menores y cumplió unos 13 meses
+                                en cárcel del condado, con salidas diarias para «trabajar».</span>
+                        </div>
+                        <div class="dossier-fact">
+                            <strong>2019 · La isla</strong>
+                            <span>El FBI registró Little St. James y sus otras propiedades tras su muerte en el
+                                MCC de Manhattan, declarada suicidio por el forense.</span>
+                        </div>
+                        <div class="dossier-fact">
+                            <strong>2025 · Los archivos</strong>
+                            <span>La justicia de EE. UU. liberó miles de documentos judiciales que reabrieron
+                                investigaciones y nombres que hasta entonces permanecían sellados.</span>
+                        </div>
+                    </div>
+                    <div class="start-actions">
+                        <button class="button" id="dossier-start">Comenzar investigación <span
+                                aria-hidden="true">&nbsp;→</span></button>
+                        <button class="button button--ghost" id="dossier-back">Volver</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content game-screen round-content" id="round-screen" hidden>
+                <div class="round-header">
+                    <div class="top-progress" aria-hidden="true"><i id="top-progress"></i></div>
+                    <div class="hud-bar" role="group" aria-label="Estado de la partida">
+                        <div class="hud-section hud-round">
+                            <span class="badge-label">Capítulo</span>
+                            <div class="hud-value">
+                                <strong id="round-status">1 de 5</strong>
+                                <div class="progress" role="group" aria-label="Progreso de capítulos">
+                                    <i id="progress-1"></i><i id="progress-2"></i><i id="progress-3"></i><i
+                                        id="progress-4"></i><i id="progress-5"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hud-divider" aria-hidden="true"></div>
+                        <div class="hud-section hud-defeats">
+                            <span class="badge-label">Errores</span>
+                            <div class="hud-value">
+                                <span class="losses"><strong id="loss-count">0</strong><span aria-hidden="true"> /
+                                        3</span></span>
+                                <span class="hearts" id="hearts" aria-label="Tres oportunidades">♥ ♥ ♥</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-intro" id="story-intro">
+                    <div class="story-scene" id="story-scene">
+                        <div class="story-scene__image" id="story-image"></div>
+                        <div class="story-scene__shade"></div>
+                        <div class="story-scene__caption">
+                            <span class="story-scene__chapter" id="story-chapter">CAPÍTULO 01</span>
+                            <h2 id="story-title">El arresto de Miami</h2>
+                            <span id="story-text">Algo se movió entre las cajas.</span>
+                        </div>
+                    </div>
+                    <div class="story-actions">
+                        <button class="button fab fab--story" id="story-next">Continuar <span
+                                aria-hidden="true">&nbsp;→</span></button>
+                        <button class="story-skip fab fab--skip" id="story-skip">Omitir</button>
+                    </div>
+                </div>
+                <div class="round-grid">
+                    <div>
+                        <div class="narrator" id="narrator" tabindex="-1" aria-live="polite">
+                            <span class="narrator-who">EL CASO</span>
+                            <span class="narrator-text" id="narrator-text">Tu decisión marcará el
+                                desenlace… elige ahora antes de que sea demasiado tarde.</span>
+                        </div>
+                        <div class="fact-box" id="fact-box">
+                            <strong>Dato del caso</strong>
+                            <span id="story-fact"></span>
+                        </div>
+                        <div class="puzzle" id="puzzle"></div>
+                        <div class="result" id="result" role="status" aria-live="polite"></div>
+                        <button class="button next fab" id="next-button" hidden>Continuar <span
+                                aria-hidden="true">&nbsp;→</span></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content game-screen" id="end-screen" hidden>
+                <div class="ending" id="ending">
+                    <div class="ending-icon" id="ending-icon" aria-hidden="true">⛵</div>
+                    <div class="ending-photo" id="ending-photo" hidden>
+                        <img id="ending-photo-img" src="" alt="" loading="lazy" decoding="async">
+                    </div>
+                    <div class="ending-screamer" id="ending-screamer" aria-hidden="true">
+                        <img src="assets/images/jeffrey-esptein-end.png" alt="" width="1200" height="1600"
+                            loading="lazy" decoding="async">
+                    </div>
+                    <p class="eyebrow" id="ending-eyebrow">¡Lo lograste!</p>
+                    <h2 id="ending-title">La isla queda atrás</h2>
+                    <p id="ending-text">El bote se aleja de la costa y por fin puedes respirar tranquilo.</p>
+                    <p class="ending-rank" id="ending-rank"></p>
+                    <button class="button" id="restart-button">Volver al inicio <span
+                            aria-hidden="true">&nbsp;↩</span></button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="screamer-overlay" id="screamer-overlay" hidden aria-hidden="true">
+        <img src="assets/images/jeffrey-esptein-end.png" alt="" width="1200" height="1600" loading="lazy"
+            decoding="async">
+    </div>
+
+    <audio id="ambient-audio" preload="auto">
+        <source src="assets/sounds/horror-ambient.wav" type="audio/wav">
+    </audio>
+    <audio id="screamer-audio" preload="auto">
+        <source src="assets/sounds/screamer-end.wav" type="audio/wav">
+    </audio>
+    <audio id="impact-audio" preload="auto">
+        <source src="assets/sounds/sfx-boom.wav" type="audio/wav">
+    </audio>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
