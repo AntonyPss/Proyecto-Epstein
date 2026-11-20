@@ -5,6 +5,7 @@ const chapters = [
         title: "El arresto de Miami",
         story: "Noviembre de 2006. Jeffrey Epstein vuelve de París en su jet privado y es detenido en el aeropuerto de Miami. En su equipaje los agentes encuentran pasaportes falsos de varios países y una cantidad astronómica de efectivo escondido entre los billetes.",
         fact: "Los agentes encontraron unos 570.000 dólares en efectivo, gran parte de ellos doblados dentro de revistas y periódicos del asiento.",
+        hint: "La respuesta es algo que cabe en un mapa y no en una caja.",
         event: "El expediente se abre con un acertijo que el propio fiscal dejó como pista. Resuélvelo para continuar la investigación.",
         win: "Correcto. La pista del fiscal te lleva al siguiente documento del expediente.",
         lose: "Esa no era la respuesta. El expediente marca un error y la presión aumenta.",
@@ -29,6 +30,7 @@ const chapters = [
         title: "La mansión de Palm Beach",
         story: "Palm Beach, Florida. Desde la mansión de la calle El Brillo, Epstein construyó durante décadas una red de contactos que incluía políticos, financieros y miembros de la realeza. Aquí es donde las primeras acusadoras empezaron a hablar.",
         fact: "Virginia Giuffre declaró haber sido reclutada a los 16 años por Ghislaine Maxwell, quien trabajaba como asistente personal de Epstein.",
+        hint: "La condena fue menor de un año y medio, pero mayor de un año.",
         event: "En los archivos del condado hay un número que cambió el caso. Escribe la respuesta exacta.",
         win: "Exacto. El número encaja con los documentos judiciales y la investigación avanza.",
         lose: "Respuesta incorrecta. El archivo se cierra parcialmente y pierdes tiempo.",
@@ -50,6 +52,7 @@ const chapters = [
         title: "Little St. James",
         story: "En las Islas Vírgenes de EE. UU. se alza una isla privada de apenas 22 hectáreas: Little St. James. Tenía su propia pista de aterrizaje, helipuerto, una casa principal de tres pisos y una playa que nunca apareció en postales.",
         fact: "En 2019 el FBI registró la isla durante varios días y se incautó material que incluía «cajas azules» con documentos y dispositivos electrónicos.",
+        hint: "Las palabras del crucigrama se cruzan entre sí; una es donde vives si eres pequeño.",
         event: "Las fotografías del registro muestran objetos concretos. ¿Cuál aparece documentado en el inventario?",
         win: "Correcto. El inventario del FBI confirma lo que muchos sospechaban.",
         lose: "Esa opción no figura en el inventario. Revisa las pistas visuales de la escena.",
@@ -86,6 +89,7 @@ const chapters = [
         title: "Zorro Ranch",
         story: "Nuevo México. En las montañas cerca de Truth or Consequences, Epstein poseía un rancho enorme llamado Zorro Ranch. Los documentos lo describen como un refugio con pista de aterrizaje propia, ganado y una soledad absoluta.",
         fact: "El rancho tenía su propia pista de aterrizaje y una casa principal que los investigadores asociaron con reuniones privadas.",
+        hint: "Z _ _ _ _ _ : un animal astuto del desierto.",
         event: "Para llegar al rancho necesitas el nombre exacto que aparece en los títulos de propiedad.",
         win: "Correcto. Los títulos de propiedad coinciden y el expediente avanza al capítulo final.",
         lose: "El nombre no figura así en los registros. Inténtalo de nuevo.",
@@ -106,6 +110,7 @@ const chapters = [
         title: "La red de Londres",
         story: "Londres. Mientras Epstein mantenía sus propiedades en EE. UU., su exnovia y exasistente Ghislaine Maxwell operaba desde una casa en Belgravia. Allí vivía entre lujos, una biblioteca y una vida social que ocultaba una década de abusos.",
         fact: "Maxwell fue detenida en noviembre de 2020 mientras se escondía en una casa de los alrededores de Londres, y en 2022 fue condenada a 20 años de prisión.",
+        hint: "La pena tiene dos dígitos y el jurado la dictó en diciembre de 2022.",
         event: "El expediente termina con la condena de Maxwell. Elige la pena que dictó el jurado.",
         win: "Correcto. La condena cerró el círculo judicial… o eso parecía.",
         lose: "Esa no fue la condena. El jurado dictó una pena distinta en diciembre de 2022.",
@@ -124,13 +129,102 @@ const chapters = [
             },
         },
     },
+    {
+        scene: "cell",
+        chapter: "CAPÍTULO 06",
+        title: "La celda M-11",
+        story: "Agosto de 2019. El Metropolitan Correctional Center de Manhattan: el mismo edificio donde Epstein había sido juzgado años atrás. Las cámaras del pasillo estaban fuera de servicio esa noche y los guardias no cumplieron el protocolo de rondas. A la mañana siguiente lo encontraron inconsciente en su celda, el 6 de agosto.",
+        fact: "El MCC es uno de los centros de detención federales más conocidos de EE. UU.; Epstein llevaba recluido ahí desde julio de 2019, tras su segunda detención.",
+        hint: "Fue el mismo edificio federal donde se celebró el juicio original.",
+        event: "Los documentos señalan el lugar exacto donde terminó la historia. Elige la respuesta correcta.",
+        win: "Correcto. El expediente ubica el último punto del mapa.",
+        lose: "Esa no era la respuesta. El expediente marca otro error.",
+        challenge: {
+            type: "choice",
+            prompt: "¿En qué centro de detención murió Jeffrey Epstein en agosto de 2019?",
+            options: [
+                { label: "El MCC de Manhattan", correct: true },
+                { label: "La cárcel del condado de Palm Beach", correct: false },
+                { label: "Una celda en la isla", correct: false },
+                { label: "En pleno vuelo hacia Europa", correct: false },
+            ],
+            feedback: {
+                ok: "El MCC de Manhattan: la misma torre de vidrio y acero donde empezó el juicio.",
+                ko: "No fue ahí. Recuerda que su segunda detención fue en Nueva York, no en Florida.",
+            },
+        },
+    },
+    {
+        scene: "files",
+        chapter: "CAPÍTULO 07",
+        title: "La marea de papeles",
+        story: "Enero de 2025. El Departamento de Justicia de EE. UU. comenzó a liberar miles de páginas de documentos judiciales del caso. Nombres de políticos, financieros y celebridades aparecieron en listas que durante años estuvieron selladas bajo siete candados. Los periodistas trabajaron meses para procesar la avalancha.",
+        fact: "La primera entrega superó los cientos de miles de páginas y el Congreso exigió explicaciones sobre los nombres que seguían sin publicarse.",
+        hint: "Es el año más reciente de todos los capítulos.",
+        event: "Entre el papel y el silencio hay una fecha que lo cambió todo. Escríbela.",
+        win: "Correcto. La fecha coincide con los sellos del Departamento de Justicia.",
+        lose: "Esa fecha no aparece en los registros. Fue reciente y masiva.",
+        challenge: {
+            type: "text",
+            prompt: "¿En qué año comenzó la liberación masiva de documentos del caso Epstein? (Escribe solo el número).",
+            placeholder: "Ej: una década atrás",
+            answer: "2025",
+            numeric: true,
+            feedback: {
+                ok: "2025: el año en que el expediente salió de los archivos y llegó a los titulares.",
+                ko: "No coincide. La liberación masiva fue muy reciente: piensa en el año pasado.",
+            },
+        },
+    },
+    {
+        scene: "night",
+        chapter: "CAPÍTULO 08",
+        title: "La isla de noche",
+        story: "De noche, Little St. James desaparece entre el mar Caribe. Los barcos que pasan de madrugada juran haber visto luces que se encienden y apagan solas, y una casa que nunca parece vacía del todo. El expediente cierra donde todo empezó: en una isla que guardó sus secretos bajo el agua.",
+        fact: "La isla sigue siendo propiedad privada y el acceso está prohibido; las embarcaciones que se acercan sin permiso son escoltadas fuera por la guardia costera.",
+        hint: "PLAYA va en horizontal en la fila del medio; las demás palabras se cruzan con ella.",
+        event: "Último acertijo del expediente: un crucigrama con las pistas que quedan sobre la isla.",
+        win: "Crucigrama resuelto. Has leído el expediente completo.",
+        lose: "El crucigrama aún tiene letras incorrectas. Última oportunidad de despejar la niebla.",
+        challenge: {
+            type: "crossword",
+            prompt: "Las últimas pistas del registro nocturno forman un crucigrama. Escribe las letras en cada casilla hasta completar las cuatro palabras.",
+            size: 5,
+            words: [
+                {
+                    clue: "Horizontal · Franja de arena junto al mar",
+                    answer: "PLAYA",
+                    cells: [[1, 0], [1, 1], [1, 2], [1, 3], [1, 4]],
+                },
+                {
+                    clue: "Vertical · Edificaciones de la propiedad",
+                    answer: "CASAS",
+                    cells: [[0, 2], [1, 2], [2, 2], [3, 2], [4, 2]],
+                },
+                {
+                    clue: "Horizontal · Fijador metálico de documentos",
+                    answer: "GRAPA",
+                    cells: [[3, 0], [3, 1], [3, 2], [3, 3], [3, 4]],
+                },
+                {
+                    clue: "Vertical · Residencia de lujo",
+                    answer: "CASA",
+                    cells: [[0, 4], [1, 4], [2, 4], [3, 4]],
+                },
+            ],
+            feedback: {
+                ok: "Crucigrama resuelto: PLAYA, CASAS, GRAPA y CASA. La isla guarda sus secretos, pero tú ya los leíste.",
+                ko: "El crucigrama aún tiene letras incorrectas. Revisa las palabras que se cruzan.",
+            },
+        },
+    },
 ];
 const endings = {
     perfect: {
         icon: "🗂️",
         eyebrow: "¡Expediente completo!",
         title: "La verdad al descubierto",
-        text: "Resolviste los cinco capítulos sin un solo error. Reconstruiste la red completa: del arresto de Miami a la isla, el rancho y Londres. Los documentos que hoy sacuden al mundo estuvieron siempre ahí; solo faltaba alguien que los leyera con atención.",
+        text: "Resolviste los ocho capítulos sin un solo error. Reconstruiste la red completa: del arresto de Miami a la celda, los archivos y la isla de noche. Los documentos que hoy sacuden al mundo estuvieron siempre ahí; solo faltaba alguien que los leyera con atención.",
         photo: "assets/images/island-escape.jpg",
         rank: "Rango: Detective de élite",
         screamer: false,
@@ -163,12 +257,11 @@ let locked = false;
 let screamerTimer = null;
 let scareTimer = null;
 const scareImages = [
-    "assets/images/scare-corridor.jpg",
-    "assets/images/scare-fog.jpg",
-    "assets/images/scare-shadows.jpg",
-    "assets/images/scare-exit.jpg",
-    "assets/images/scare-forest.jpg",
-    "assets/images/scare-dark.jpg",
+    "assets/images/jeffrey-alt.png",
+    "assets/images/jeffrey-stare.png",
+    "assets/images/jeffrey-pointing.png",
+    "assets/images/jeffrey-sunrise.png",
+    "assets/images/jeffrey-evil.png",
 ];
 const MAX_MISTAKES = 3;
 const TOTAL_CHAPTERS = chapters.length;
@@ -775,6 +868,19 @@ ambientAudio.addEventListener("ended", () => {
         console.warn("El navegador bloqueó el siguiente ambiente.");
     });
 });
+
+const hintsList = $("dossier-hints-list");
+if (hintsList) {
+    chapters.forEach((chapter) => {
+        const item = document.createElement("li");
+        const title = document.createElement("strong");
+        title.textContent = `${chapter.chapter} · ${chapter.title}`;
+        const hint = document.createElement("span");
+        hint.textContent = chapter.hint || "";
+        item.append(title, hint);
+        hintsList.appendChild(item);
+    });
+}
 
 $("start-button").addEventListener("click", () => {
     playSfx("click");

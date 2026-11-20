@@ -1,7 +1,7 @@
 {
     "name": "El Expediente Epstein",
     "short_name": "Expediente",
-    "description": "Una investigación interactiva de terror y acertijos. Sigue la pista a través de cinco escenarios y alcanza uno de los varios finales.",
+    "description": "Una investigación interactiva de terror y acertijos. Sigue la pista a través de ocho escenarios y alcanza uno de los varios finales.",
     "id": "./index.html",
     "start_url": "./index.html",
     "scope": "./",

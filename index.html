@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description"
-        content="El Expediente Epstein: una investigación interactiva de terror e acertijos. Sigue la pista a través de cinco escenarios, descubre datos ocultos y alcanza uno de los varios finales.">
+        content="El Expediente Epstein: una investigación interactiva de terror e acertijos. Sigue la pista a través de ocho escenarios, descubre datos ocultos y alcanza uno de los varios finales.">
     <meta name="theme-color" content="#050706">
     <title>El Expediente Epstein</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,12 +28,12 @@
                 <div>
                     <p class="eyebrow">Una investigación interactiva</p>
                     <h1>El expediente que <span>nadie</span> quería abrir</h1>
-                    <p class="intro">Miles de documentos salieron a la luz en 2025. Tú tienes el tuyo: cinco
-                        escenarios, cinco acertijos y una verdad que nadie esperaba. Cada error te acerca al
+                    <p class="intro">Miles de documentos salieron a la luz en 2025. Tú tienes el tuyo: ocho
+                        escenarios, ocho acertijos y una verdad que nadie esperaba. Cada error te acerca al
                         final.</p>
                     <p class="creator-credit">Creado por <strong>AntonyPss</strong></p>
                     <div class="rules">
-                        <div class="rule"><strong>Tu misión</strong>Resuelve los 5 capítulos del expediente.</div>
+                        <div class="rule"><strong>Tu misión</strong>Resuelve los 8 capítulos del expediente.</div>
                         <div class="rule"><strong>Cuidado</strong>Solo tienes 3 oportunidades.</div>
                     </div>
                     <div class="start-actions">
@@ -85,6 +85,12 @@
                                 investigaciones y nombres que hasta entonces permanecían sellados.</span>
                         </div>
                     </div>
+                    <div class="dossier-hints">
+                        <h3>Pistas del caso</h3>
+                        <p class="dossier-hints__note">Si un capítulo se te atasca, aquí tienes una pista para cada
+                            escenario.</p>
+                        <ul class="dossier-hints__list" id="dossier-hints-list"></ul>
+                    </div>
                     <div class="start-actions">
                         <button class="button" id="dossier-start">Comenzar investigación <span
                                 aria-hidden="true">&nbsp;→</span></button>
@@ -103,11 +109,11 @@
                                 <strong id="round-status">1 de 5</strong>
                                 <div class="progress" role="group" aria-label="Progreso de capítulos">
                                     <i id="progress-1"></i><i id="progress-2"></i><i id="progress-3"></i><i
-                                        id="progress-4"></i><i id="progress-5"></i>
+                                        id="progress-4"></i><i id="progress-5"></i><i id="progress-6"></i><i
+                                        id="progress-7"></i><i id="progress-8"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="hud-divider" aria-hidden="true"></div>
                         <div class="hud-section hud-defeats">
                             <span class="badge-label">Errores</span>
                             <div class="hud-value">

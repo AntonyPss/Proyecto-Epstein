@@ -1,4 +1,4 @@
-const CACHE = "expediente-epstein-v3";
+const CACHE = "expediente-epstein-v7";
 const ASSETS = [
     "./",
     "index.html",
@@ -12,14 +12,16 @@ const ASSETS = [
     "assets/images/case-island.jpg",
     "assets/images/case-desert.jpg",
     "assets/images/case-london.jpg",
+    "assets/images/case-cell.jpg",
+    "assets/images/case-night.jpg",
+    "assets/images/documents.jpg",
     "assets/images/island-escape.jpg",
     "assets/images/island-haze.jpg",
-    "assets/images/scare-corridor.jpg",
-    "assets/images/scare-fog.jpg",
-    "assets/images/scare-shadows.jpg",
-    "assets/images/scare-exit.jpg",
-    "assets/images/scare-forest.jpg",
-    "assets/images/scare-dark.jpg",
+    "assets/images/jeffrey-alt.png",
+    "assets/images/jeffrey-stare.png",
+    "assets/images/jeffrey-pointing.png",
+    "assets/images/jeffrey-sunrise.png",
+    "assets/images/jeffrey-evil.png",
     "assets/sounds/horror-ambient.wav",
     "assets/sounds/rising-tension.wav",
     "assets/sounds/screamer-end.wav",
