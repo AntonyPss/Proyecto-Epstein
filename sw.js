@@ -17,7 +17,6 @@ const ASSETS = [
     "assets/images/documents.jpg",
     "assets/images/island-escape.jpg",
     "assets/images/island-haze.jpg",
-    "assets/images/jeffrey-alt.png",
     "assets/images/jeffrey-stare.png",
     "assets/images/jeffrey-pointing.png",
     "assets/images/jeffrey-sunrise.png",
