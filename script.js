@@ -161,8 +161,37 @@ let firstTry = 0;
 let roundAttempts = 0;
 let locked = false;
 let screamerTimer = null;
+let scareTimer = null;
+const scareImages = [
+    "assets/images/scare-corridor.jpg",
+    "assets/images/scare-fog.jpg",
+    "assets/images/scare-shadows.jpg",
+    "assets/images/scare-exit.jpg",
+    "assets/images/scare-forest.jpg",
+    "assets/images/scare-dark.jpg",
+];
 const MAX_MISTAKES = 3;
 const TOTAL_CHAPTERS = chapters.length;
+
+function triggerScare() {
+    if (!scareOverlay || !scareImg) return;
+    scareImg.src = scareImages[Math.floor(Math.random() * scareImages.length)];
+    scareOverlay.hidden = false;
+    impactAudio.currentTime = 0;
+    impactAudio.play().catch(() => {
+        console.warn("El navegador bloqueó el sonido de impacto.");
+    });
+    if (gameEl) {
+        gameEl.classList.remove("game--shake");
+        void gameEl.offsetWidth;
+        gameEl.classList.add("game--shake");
+    }
+    clearTimeout(scareTimer);
+    scareTimer = setTimeout(() => {
+        scareOverlay.hidden = true;
+        if (gameEl) gameEl.classList.remove("game--shake");
+    }, 750);
+}
 const ambientAudio = document.getElementById("ambient-audio");
 const screamerAudio = document.getElementById("screamer-audio");
 const impactAudio = document.getElementById("impact-audio");
@@ -210,6 +239,9 @@ const nextButton = $("next-button");
 const narratorBox = $("narrator");
 const narratorText = $("narrator-text");
 const narratorWho = narratorBox.querySelector(".narrator-who");
+const gameEl = document.querySelector(".game");
+const scareOverlay = $("scare-overlay");
+const scareImg = $("scare-img");
 
 let typeTimer = null;
 let typeFullText = "";
@@ -218,7 +250,8 @@ function say(text, who = "EL CASO") {
     if (typeTimer) clearInterval(typeTimer);
     typeTimer = null;
     typeFullText = text;
-    narratorWho.textContent = who;
+    if (narratorWho) narratorWho.textContent = who;
+    if (!narratorText) return;
     narratorText.textContent = "";
     let i = 0;
     typeTimer = setInterval(() => {
@@ -232,13 +265,15 @@ function say(text, who = "EL CASO") {
     }, 24);
 }
 
-narratorBox.addEventListener("click", () => {
-    if (typeTimer) {
-        clearInterval(typeTimer);
-        typeTimer = null;
-        narratorText.textContent = typeFullText;
-    }
-});
+if (narratorBox) {
+    narratorBox.addEventListener("click", () => {
+        if (typeTimer) {
+            clearInterval(typeTimer);
+            typeTimer = null;
+            if (narratorText) narratorText.textContent = typeFullText;
+        }
+    });
+}
 
 function showScreen(screen) {
     [startScreen, dossierScreen, roundScreen, endScreen].forEach(
@@ -251,6 +286,12 @@ function beginGame() {
         clearTimeout(screamerTimer);
         screamerTimer = null;
     }
+    if (scareTimer) {
+        clearTimeout(scareTimer);
+        scareTimer = null;
+    }
+    if (scareOverlay) scareOverlay.hidden = true;
+    if (gameEl) gameEl.classList.remove("game--shake");
     $("screamer-overlay").hidden = true;
     screamerAudio.pause();
     screamerAudio.currentTime = 0;
@@ -276,14 +317,20 @@ function beginGame() {
 }
 
 function updateProgress() {
-    for (let i = 1; i <= TOTAL_CHAPTERS; i++)
-        $("progress-" + i).className = i <= solved ? "won" : "";
-    $("loss-count").textContent = mistakes;
-    $("top-progress").style.width =
-        `${(solved / TOTAL_CHAPTERS) * 100}%`;
+    for (let i = 1; i <= TOTAL_CHAPTERS; i++) {
+        const el = $("progress-" + i);
+        if (el) el.className = i <= solved ? "won" : "";
+    }
+    const lossCount = $("loss-count");
+    if (lossCount) lossCount.textContent = mistakes;
+    const topProgress = $("top-progress");
+    if (topProgress)
+        topProgress.style.width = `${(solved / TOTAL_CHAPTERS) * 100}%`;
+    const hearts = $("hearts");
+    if (!hearts) return;
     const left = Math.max(0, MAX_MISTAKES - mistakes);
-    $("hearts").textContent = "♥ ".repeat(left).trim() || "—";
-    $("hearts").setAttribute(
+    hearts.textContent = "♥ ".repeat(left).trim() || "—";
+    hearts.setAttribute(
         "aria-label",
         `${left} oportunidades restantes`,
     );
@@ -570,6 +617,12 @@ function evaluate(ok) {
     } else {
         mistakes++;
         playSfx("wrong");
+        triggerScare();
+        if (mistakes === 1) {
+            ambientTrackIndex = 1;
+            ambientAudio.src = ambientTracks[1];
+            ambientAudio.play().catch(() => {});
+        }
         resultBox.className = "result bad";
         resultBox.textContent = challenge.feedback.ko;
         say(chapter.lose, "EL CASO");
@@ -617,7 +670,7 @@ function loadRound(showStory = true) {
     nextButton.hidden = true;
     buildPuzzle(chapter.challenge);
     storyIntro.hidden = !showStory;
-    roundGrid.hidden = showStory;
+    if (roundGrid) roundGrid.hidden = showStory;
     puzzleBox.hidden = showStory;
     locked = showStory;
     updateProgress();
@@ -625,8 +678,11 @@ function loadRound(showStory = true) {
 
 function revealBattle() {
     playSfx("page");
+    if (Math.random() < 0.22) {
+        setTimeout(triggerScare, 700);
+    }
     storyIntro.hidden = true;
-    roundGrid.hidden = false;
+    if (roundGrid) roundGrid.hidden = false;
     puzzleBox.hidden = false;
     locked = false;
     $("narrator").focus();
@@ -696,6 +752,12 @@ function returnToStart() {
         clearTimeout(screamerTimer);
         screamerTimer = null;
     }
+    if (scareTimer) {
+        clearTimeout(scareTimer);
+        scareTimer = null;
+    }
+    if (scareOverlay) scareOverlay.hidden = true;
+    if (gameEl) gameEl.classList.remove("game--shake");
     ambientAudio.pause();
     screamerAudio.pause();
     screamerAudio.currentTime = 0;
@@ -738,5 +800,13 @@ nextButton.addEventListener("click", () => {
     playSfx("click");
     nextStep();
 });
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch((error) => {
+            console.warn("No se pudo registrar el service worker:", error);
+        });
+    });
+}
+
 $("story-next").addEventListener("click", revealBattle);
 $("story-skip").addEventListener("click", revealBattle);

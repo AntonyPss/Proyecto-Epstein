@@ -1,0 +1,30 @@
+{
+    "name": "El Expediente Epstein",
+    "short_name": "Expediente",
+    "description": "Una investigación interactiva de terror y acertijos. Sigue la pista a través de cinco escenarios y alcanza uno de los varios finales.",
+    "id": "./index.html",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#050706",
+    "theme_color": "#050706",
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/icons/icon-512-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

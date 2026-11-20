@@ -12,6 +12,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Expediente">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -154,7 +160,7 @@
                         <img id="ending-photo-img" src="" alt="" loading="lazy" decoding="async">
                     </div>
                     <div class="ending-screamer" id="ending-screamer" aria-hidden="true">
-                        <img src="assets/images/jeffrey-esptein-end.png" alt="" width="1200" height="1600"
+                        <img src="assets/images/jeffrey-esptein-end.png" alt="" width="832" height="1248"
                             loading="lazy" decoding="async">
                     </div>
                     <p class="eyebrow" id="ending-eyebrow">¡Lo lograste!</p>
@@ -168,8 +174,12 @@
         </div>
     </main>
 
+    <div class="scare-overlay" id="scare-overlay" hidden aria-hidden="true">
+        <img id="scare-img" src="" alt="" decoding="async">
+    </div>
+
     <div class="screamer-overlay" id="screamer-overlay" hidden aria-hidden="true">
-        <img src="assets/images/jeffrey-esptein-end.png" alt="" width="1200" height="1600" loading="lazy"
+        <img src="assets/images/jeffrey-esptein-end.png" alt="" width="832" height="1248" loading="lazy"
             decoding="async">
     </div>
 
